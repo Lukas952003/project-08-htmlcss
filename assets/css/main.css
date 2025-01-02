@@ -135,12 +135,6 @@ table {
   box-sizing: border-box;
 }
 
-:root {
-  --text-color: #1a162e;
-  --icon-filter: brightness(0) saturate(100%) invert(3%) sepia(50%)
-    saturate(7380%) hue-rotate(253deg) brightness(79%) contrast(86%);
-}
-
 html {
   font-size: 62.5%;
 }
@@ -161,6 +155,10 @@ select {
 
 .icon {
   filter: var(--icon-filter);
+}
+
+.icon-logo {
+  filter: brightness(0) saturate(100%) invert(98%) sepia(85%) saturate(7056%) hue-rotate(156deg) brightness(95%) contrast(90%);
 }
 
 a {
@@ -1199,13 +1197,35 @@ a {
     --grid-gutter-y: 90px;
   }
 }
+html.dark {
+  --text-color: #fff;
+  --icon-filter: brightness(0) saturate(100%) invert(100%) sepia(0%)
+    saturate(7484%) hue-rotate(157deg) brightness(105%) contrast(98%);
+  --header-bg-color: #171c28;
+  --top-act-group-bg-color: #292e39;
+  --top-act-group-shadow-color: rgba(0, 0, 0, 0.2);
+  --top-act-group-separate-color: #ededf6;
+  --top-act-group-shadow-avt-color: rgba(0, 0, 0, 0.08);
+}
+
+html {
+  --text-color: #1a162e;
+  --icon-filter: brightness(0) saturate(100%) invert(3%) sepia(50%)
+    saturate(7380%) hue-rotate(253deg) brightness(79%) contrast(86%);
+  --header-bg-color: #eee;
+  --top-act-group-bg-color: #fff;
+  --top-act-group-shadow-color: rgba(237, 237, 246, 0.2);
+  --top-act-group-separate-color: #ededf6;
+  --top-act-group-shadow-avt-color: rgba(0, 0, 0, 0.08);
+}
+
 .top-act .top-act__btn, .top-act .top-act__group, .nav .nav__list, .top-bar {
   display: flex;
   align-items: center;
 }
 
 .header {
-  background-color: #eee;
+  background-color: var(--header-bg-color);
 }
 
 .top-bar {
@@ -1239,9 +1259,9 @@ a {
   line-height: 1.5;
 }
 .top-act .top-act__group {
-  background-color: #fff;
+  background-color: var(--top-act-group-bg-color);
   border-radius: 8px;
-  box-shadow: 0px 20px 60px 10px rgba(237, 237, 246, 0.2);
+  box-shadow: 0px 20px 60px 10px var(--top-act-group-shadow-color);
   padding: 13px;
   max-height: 50px;
 }
@@ -1253,7 +1273,7 @@ a {
 .top-act .top-act__group-2 .top-act__separate {
   width: 1px;
   height: 30px;
-  background-color: #ededf6;
+  background-color: var(--top-act-group-separate-color);
 }
 .top-act .top-act__btn {
   background-color: transparent;
@@ -1268,7 +1288,7 @@ a {
   width: 50px;
   height: 50px;
   border-radius: 8px;
-  box-shadow: 0px 4px 14px 2px rgba(0, 0, 0, 0.08);
+  box-shadow: 0px 4px 14px 2px var(--top-act-group-shadow-avt-color);
   cursor: pointer;
 }
 

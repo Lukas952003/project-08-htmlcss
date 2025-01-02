@@ -4,12 +4,6 @@
   box-sizing: border-box;
 }
 
-:root {
-  --text-color: #1a162e;
-  --icon-filter: brightness(0) saturate(100%) invert(3%) sepia(50%)
-    saturate(7380%) hue-rotate(253deg) brightness(79%) contrast(86%);
-}
-
 html {
   font-size: 62.5%;
 }
@@ -30,6 +24,11 @@ select {
 
 .icon {
   filter: var(--icon-filter);
+}
+
+.icon-logo {
+  filter: brightness(0) saturate(100%) invert(98%) sepia(85%) saturate(7056%)
+    hue-rotate(156deg) brightness(95%) contrast(90%);
 }
 
 a {

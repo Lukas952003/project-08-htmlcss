@@ -1,0 +1,11 @@
+html.dark {
+  --text-color: #fff;
+  --icon-filter: brightness(0) saturate(100%) invert(100%) sepia(0%)
+    saturate(7484%) hue-rotate(157deg) brightness(105%) contrast(98%);
+
+  --header-bg-color: #171c28;
+  --top-act-group-bg-color: #292e39;
+  --top-act-group-shadow-color: rgba(0, 0, 0, 0.2);
+  --top-act-group-separate-color: #ededf6;
+  --top-act-group-shadow-avt-color: rgba(0, 0, 0, 0.08);
+}
