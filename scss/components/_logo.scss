@@ -1,0 +1,11 @@
+@use "../abstracts";
+
+.logo {
+  @include abstracts.breakpoints(lg) {
+    scale: 0.95;
+  }
+
+  @include abstracts.breakpoints(sm) {
+    scale: 0.9;
+  }
+}
