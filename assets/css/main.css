@@ -143,6 +143,7 @@ body {
   font-size: 1.6rem;
   font-family: Gordita, "san-serif";
   color: var(--text-color);
+  background-color: var(--body-bg-color);
 }
 
 button,
@@ -1010,10 +1011,19 @@ html.dark {
   --icon-filter: brightness(0) saturate(100%) invert(100%) sepia(0%)
     saturate(7484%) hue-rotate(157deg) brightness(105%) contrast(98%);
   --header-bg-color: #171c28;
+  --shadow-header-color: 0px 20px 60px 10px rgba(0, 0, 0, 0.2);
   --top-act-group-bg-color: #292e39;
   --top-act-group-shadow-color: rgba(0, 0, 0, 0.2);
+  --body-bg-color: #292e39;
   --top-act-group-separate-color: #ededf6;
   --top-act-group-shadow-avt-color: rgba(0, 0, 0, 0.08);
+}
+html.dark {
+  --dropdown-bg-color: #292e39;
+  --dropdown-shadow-color: 0px 40px 90px 20px rgba(23, 28, 40, 0.4);
+  --top-menu-border-color: #171c28;
+  --menu-icon-category: brightness(0) saturate(100%) invert(91%) sepia(25%)
+    saturate(507%) hue-rotate(240deg) brightness(116%) contrast(96%);
 }
 
 html {
@@ -1021,10 +1031,25 @@ html {
   --icon-filter: brightness(0) saturate(100%) invert(3%) sepia(50%)
     saturate(7380%) hue-rotate(253deg) brightness(79%) contrast(86%);
   --header-bg-color: #eee;
+  --shadow-header-color: 0px 20px 60px 10px rgba(237, 237, 246, 0.2);
   --top-act-group-bg-color: #fff;
   --top-act-group-shadow-color: rgba(237, 237, 246, 0.2);
+  --body-bg-color: #f6f6f6;
   --top-act-group-separate-color: #ededf6;
   --top-act-group-shadow-avt-color: rgba(0, 0, 0, 0.08);
+}
+html {
+  --dropdown-bg-color: #fff;
+  --dropdown-shadow-color: rgba(200, 200, 200, 0.4);
+  --top-menu-border-color: #d2d1d6;
+  --menu-icon-category: brightness(0) saturate(100%) invert(4%) sepia(50%)
+    saturate(3045%) hue-rotate(238deg) brightness(96%) contrast(90%);
+}
+@media (max-width: 991.98px) {
+  html {
+    --header-bg-color: #fff;
+    box-shadow: var(--top-act-group-shadow-color);
+  }
 }
 
 .top-act .top-act__btn, .top-act .top-act__group, .nav .nav__list, .top-bar {
@@ -1034,6 +1059,7 @@ html {
 
 .header {
   background-color: var(--header-bg-color);
+  box-shadow: var(--shadow-header-color);
 }
 
 @media (max-width: 991.98px) {
@@ -1043,6 +1069,7 @@ html {
 }
 
 .top-bar {
+  position: relative;
   padding: 30px 0;
 }
 @media (max-width: 991.98px) {
@@ -1065,7 +1092,6 @@ html {
   }
 }
 .nav .nav__list {
-  gap: 30px;
   margin-left: 144px;
 }
 @media (max-width: 1199.98px) {
@@ -1077,11 +1103,15 @@ html {
   display: flex;
   align-items: center;
 }
-.nav .nav__list .nav__item a {
+.nav .nav__list .nav__item:hover .dropdown {
+  visibility: visible;
+}
+.nav .nav__list .nav__item .nav_link {
   font-size: 15px;
   font-style: normal;
   font-weight: 500;
   line-height: 22px; /* 146.667% */
+  padding: 20px 15px;
 }
 
 .top-act {
@@ -1153,6 +1183,90 @@ html {
   .logo {
     scale: 0.9;
   }
+}
+
+.dropdown {
+  top: 90px;
+  padding-top: 64px;
+  position: absolute;
+  left: 0;
+  width: min(1240px, 100%);
+}
+.dropdown__inner {
+  height: min(582px, 100vh - 178px);
+  position: relative;
+  border-radius: 20px;
+  background-color: var(--dropdown-bg-color);
+  box-shadow: 0px 40px 90px 20px var(--dropdown-shadow-color);
+  padding: 30px;
+}
+.dropdown__inner::before {
+  content: url("../icon/dropdown-arrow.svg");
+  position: absolute;
+  top: -10px;
+  left: var(--arrow-left-pos);
+  transform: translateX(-50%);
+}
+
+.top-menu {
+  height: 100%;
+}
+.top-menu__main {
+  overflow-y: auto;
+  height: 100%;
+  width: 292px;
+  border-right: 1px solid var(--top-menu-border-color);
+}
+
+.menu-column {
+  display: flex;
+  gap: 14px;
+}
+.menu-column__icon {
+  flex-shrink: 0;
+  position: relative;
+  width: 36px;
+  height: 36px;
+}
+.menu-column__content {
+  flex-grow: 1;
+}
+.menu-column__icon-1 {
+  width: 30px;
+  height: 30px;
+  object-fit: cover;
+}
+.menu-column__icon-2 {
+  position: absolute;
+  top: 12px;
+  right: 0px;
+  height: 24px;
+  width: 24px;
+  object-fit: cover;
+}
+.menu-column__icon--color {
+  filter: var(--menu-icon-category);
+}
+.menu-column__heading {
+  margin-top: 8px;
+  font-size: 1.6rem;
+  font-weight: 500;
+  line-height: 1.5;
+}
+.menu-column__list {
+  margin-top: 19px;
+}
+.menu-column__link {
+  display: block;
+  padding: 7px 0;
+  font-size: 1.4rem;
+  font-weight: 400;
+  line-height: 1.4;
+}
+.menu-column__link:hover {
+  color: #0071dc;
+  font-weight: 500;
+  line-height: 142.857%;
 }
 
 /*# sourceMappingURL=main.css.map */

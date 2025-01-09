@@ -13,6 +13,7 @@
 
 .header {
   background-color: var(--header-bg-color);
+  box-shadow: var(--shadow-header-color);
 }
 
 .logo {
@@ -22,6 +23,7 @@
 }
 
 .top-bar {
+  position: relative;
   padding: 30px 0;
   @extend %flexItemCenter;
 
@@ -44,7 +46,7 @@
   }
   .nav__list {
     @extend %flexItemCenter;
-    gap: 30px;
+
     margin-left: 144px;
 
     @include abstracts.breakpoints(xl) {
@@ -55,12 +57,17 @@
       display: flex;
       align-items: center;
 
-      a {
+      &:hover .dropdown {
+        visibility: visible;
+      }
+
+      .nav_link {
         //color: #1a162e;
         font-size: 15px;
         font-style: normal;
         font-weight: 500;
         line-height: 22px; /* 146.667% */
+        padding: 20px 15px;
       }
     }
   }
