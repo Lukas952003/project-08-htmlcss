@@ -1297,5 +1297,10 @@ html {
 .sub-menu .menu-column {
   margin-top: 30px;
 }
+.sub-menu__not-main {
+  display: grid;
+  position: initial;
+  grid-template-columns: repeat(4, 1fr);
+}
 
 /*# sourceMappingURL=main.css.map */
